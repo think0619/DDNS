@@ -9,6 +9,7 @@ from threading import Timer
 DNSPodLoginToken='Login_Token' #'123456,qazwsxedcrfv'
 DominId='DominId' #'123456'
 RecordId='RecordId' #'123456'
+ 
 
 
 def getLocalIPV4():   
@@ -70,15 +71,15 @@ def updateDNSRecord(newip):
   
 #getDomainRecords()
 
-def GetIPv4UpdateDNSRecord():
-  print('s')
+def GetIPv4UpdateDNSRecord(): 
   currentIP=getLocalIPV4_01()
   print(updateDNSRecord(currentIP))
 
 #update dns every 120s once
-GetIPv4UpdateDNSRecord()
-sTimer = Timer(120, GetIPv4UpdateDNSRecord)
-sTimer.start()
+if __name__=='__main__':
+    GetIPv4UpdateDNSRecord()
+    sTimer = Timer(120, GetIPv4UpdateDNSRecord)
+    sTimer.start()
 
 
 
